@@ -1,0 +1,13 @@
+---
+- name: install java
+  win_chocolatey:
+    name: openjdk11
+    state: present
+- name: Install notepadplusplus
+  win_chocolatey:
+    name: notepadplusplus
+    state: present
+- name: Install python
+  win_chocolatey:
+    name: python
+    state: present   

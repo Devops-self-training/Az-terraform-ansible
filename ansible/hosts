@@ -1,0 +1,17 @@
+[unix_lab]
+linux-server-1 ansible_host="{{(lookup('file','{{ hostvars[\"localhost\"][\"playbook_dir\"] }}/data/ip.json') | from_json).public_ip_linux.value}}"
+linux-server-1 ansible_user="{{(lookup('file','{{ hostvars[\"localhost\"][\"playbook_dir\"] }}/data/auth.json') | from_json).linux.username}}"
+linux-server-1 ansible_password="{{(lookup('file','{{ hostvars[\"localhost\"][\"playbook_dir\"] }}/data/auth.json') | from_json).linux.password}}"
+linux-server-1 ansible_ssh_extra_args='-o StrictHostKeyChecking=no'
+
+[win_lab]
+win-server-1 ansible_host="{{(lookup('file','{{ hostvars[\"localhost\"][\"playbook_dir\"] }}/data/ip.json') | from_json).public_ip_window.value}}"
+win-server-1 ansible_user="{{(lookup('file','{{ hostvars[\"localhost\"][\"playbook_dir\"] }}/data/auth.json') | from_json).win.username}}"
+win-server-1 ansible_password="{{(lookup('file','{{ hostvars[\"localhost\"][\"playbook_dir\"] }}/data/auth.json') | from_json).win.password}}"
+win-server-1 ansible_connection=winrm
+win-server-1 ansible_winrm_transport=basic
+win-server-1 ansible_port=5985
+win-server-1 ansible_connection=winrm
+win-server-1 ansible_winrm_scheme=http
+#ansible_winrm_scheme=https
+win-server-1 ansible_winrm_server_cert_validation=ignore

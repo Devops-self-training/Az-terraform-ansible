@@ -1,0 +1,12 @@
+{
+  "public_ip_linux": {
+    "sensitive": false,
+    "type": "string",
+    "value": "168.63.248.152"
+  },
+  "public_ip_window": {
+    "sensitive": false,
+    "type": "string",
+    "value": "137.116.149.96"
+  }
+}
